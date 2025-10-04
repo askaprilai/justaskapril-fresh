@@ -277,24 +277,20 @@
             color: #FFD700;
         }
 
-        /* Just Ask April Banner */
-        .just-ask-april-banner {
+        /* Interactive Hero Widget */
+        .interactive-hero-widget {
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
             border: 3px solid #333;
             border-radius: 20px;
-            padding: 2rem;
+            padding: 2.5rem;
             margin: 3rem 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-            box-shadow: 0 12px 40px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 15px 50px rgba(255, 215, 0, 0.4);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .just-ask-april-banner::before {
+        .interactive-hero-widget::before {
             content: '';
             position: absolute;
             top: 0;
@@ -303,221 +299,224 @@
             bottom: 0;
             background: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%), 
                         linear-gradient(-45deg, rgba(255,255,255,0.1) 25%, transparent 25%);
-            background-size: 20px 20px;
+            background-size: 30px 30px;
             pointer-events: none;
+            opacity: 0.5;
         }
 
-        .just-ask-april-banner:hover {
-            transform: translateY(-5px);
+        .interactive-hero-widget:hover {
+            transform: translateY(-3px);
             box-shadow: 0 20px 60px rgba(255, 215, 0, 0.5);
-        }
-
-        .banner-left {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            z-index: 2;
-            position: relative;
-        }
-
-        .banner-photo {
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .april-banner-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 4px solid #333;
-            object-fit: cover;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .experience-tag {
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #333;
-            color: #FFD700;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            white-space: nowrap;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-        }
-
-        .banner-content {
-            flex: 1;
-        }
-
-        .banner-content h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #333;
-            margin-bottom: 0.8rem;
-            line-height: 1.2;
-        }
-
-        .banner-content p {
-            color: #333;
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
-            font-weight: 500;
-        }
-
-        .banner-cta {
-            background: #333;
-            color: #FFD700;
-            padding: 1rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            border: 2px solid #333;
-        }
-
-        .banner-cta:hover {
-            background: #FFD700;
-            color: #333;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-        }
-
-        .transformation-widget {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 16px;
-            padding: 2rem;
-            border: 3px solid #333;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            z-index: 2;
-            position: relative;
         }
 
         .widget-header {
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            z-index: 2;
+            position: relative;
         }
 
-        .widget-header h4 {
+        .widget-header h2 {
             color: #333;
-            font-size: 1.3rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 800;
             margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .widget-subtext {
-            color: #666;
-            font-size: 0.9rem;
-            font-weight: 500;
+        .widget-tagline {
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: 600;
+            opacity: 0.8;
         }
 
-        .transformation-demo {
+        .live-demo-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 3px solid #333;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            z-index: 2;
+            position: relative;
+        }
+
+        .demo-input-section {
             margin-bottom: 1.5rem;
-        }
-
-        .demo-input, .demo-output {
-            margin-bottom: 1rem;
         }
 
         .demo-label {
             display: block;
             font-weight: 700;
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+
+        .demo-input-box {
+            width: 100%;
+            padding: 1.2rem;
+            border: 3px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            resize: vertical;
+            min-height: 100px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            background: #f8f9fa;
+        }
+
+        .demo-input-box:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+            background: white;
+        }
+
+        .transformation-arrow {
+            text-align: center;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .arrow-icon {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .transformation-text {
+            font-weight: 600;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .demo-output-section {
+            margin-top: 1.5rem;
+        }
+
+        .output-label {
+            display: block;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            color: #7c3aed;
+        }
+
+        .demo-output-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e7e5e4 100%);
+            padding: 1.2rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            border-left: 4px solid #7c3aed;
+            color: #333;
+            font-weight: 500;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .typing-animation {
+            color: #666;
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        .hero-cta-section {
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .primary-hero-cta {
+            background: #333;
+            color: #FFD700;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-bottom: 1rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border: 3px solid #333;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        .demo-input .demo-label {
-            color: #0891b2;
-        }
-
-        .demo-output .demo-label {
-            color: #7c3aed;
-        }
-
-        .demo-text {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 10px;
-            font-size: 0.95rem;
-            line-height: 1.4;
-            border-left: 4px solid;
+        .primary-hero-cta:hover {
+            background: #FFD700;
             color: #333;
-            font-weight: 500;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
         }
 
-        .demo-input .demo-text {
-            border-left-color: #0891b2;
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
 
-        .demo-output .demo-text {
-            border-left-color: #7c3aed;
-        }
-
-        .demo-arrow {
-            text-align: center;
-            font-size: 1.5rem;
-            margin: 0.8rem 0;
+        .trust-indicators span {
+            background: rgba(255, 255, 255, 0.9);
             color: #333;
-        }
-
-        .try-now-btn {
-            background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            display: block;
-            text-align: center;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
-        }
-
-        .try-now-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
-            background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 2px solid #333;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         @media (max-width: 768px) {
-            .just-ask-april-banner {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+            .interactive-hero-widget {
                 padding: 1.5rem;
+                margin: 2rem 0;
             }
 
-            .banner-left {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
+            .widget-header h2 {
+                font-size: 2rem;
             }
 
-            .banner-content h3 {
-                font-size: 1.4rem;
-            }
-
-            .banner-content p {
+            .widget-tagline {
                 font-size: 1rem;
             }
 
-            .transformation-widget {
+            .live-demo-container {
                 padding: 1.5rem;
             }
 
-            .widget-header h4 {
-                font-size: 1.1rem;
+            .trust-indicators {
+                gap: 1rem;
+            }
+
+            .trust-indicators span {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .transformation-arrow {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .arrow-icon {
+                transform: rotate(90deg);
             }
         }
 
@@ -853,43 +852,43 @@
         <section class="hero">
             <div class="hero-container">
                 <div class="hero-content">
-                    <h1>Elevate Your Leadership From Good to Exceptional</h1>
-                    <p style="font-size: 1.3rem; font-weight: 600; color: #FFD700; margin-bottom: 1rem; font-style: italic;">For high-performing managers ready to optimize every conversation</p>
-                    <p>You're already a strong leader. Now master the nuanced conversations that separate good managers from transformational leaders. Get precision coaching from April Sabral's 30+ years of executive experience, plus complete HR tools to scale your impact.</p>
+                    <h1>The Conversation Tool That Makes Managers Legendary</h1>
+                    <p style="font-size: 1.3rem; font-weight: 600; color: #FFD700; margin-bottom: 1rem; font-style: italic;">Turn every difficult conversation into a leadership win</p>
+                    <p>Stop avoiding tough conversations. Start winning them. Get instant, expert-level scripts that transform conflict into collaboration and problems into breakthroughs. 30+ years of leadership wisdom at your fingertips.</p>
                     
-                    <!-- Just Ask April Banner -->
-                    <div class="just-ask-april-banner">
-                        <div class="banner-left">
-                            <div class="banner-photo">
-                                <img src="April-Image1.png" alt="April Sabral - 30+ Years Leadership Experience" class="april-banner-img">
-                                <div class="experience-tag">30+ Years Leading Teams</div>
+                    <!-- Interactive Hero Widget -->
+                    <div class="interactive-hero-widget">
+                        <div class="widget-header">
+                            <h2>🎯 The Grammarly for Managers</h2>
+                            <p class="widget-tagline">See your words transform in real-time</p>
+                        </div>
+                        
+                        <div class="live-demo-container">
+                            <div class="demo-input-section">
+                                <label class="demo-label">Type what you want to say:</label>
+                                <textarea id="userInput" class="demo-input-box" placeholder="e.g., Your performance needs improvement..."></textarea>
                             </div>
-                            <div class="banner-content">
-                                <h3>🎯 The Grammarly for Managers</h3>
-                                <p>You're already a strong leader. Now make every conversation **high-performing**. Transform good management dialogue into exceptional coaching that drives results and builds loyalty.</p>
-                                <a href="just-ask-april.html" class="banner-cta">Elevate Your Conversations →</a>
+                            
+                            <div class="transformation-arrow">
+                                <div class="arrow-icon">→</div>
+                                <div class="transformation-text">April AI transforms it to:</div>
+                            </div>
+                            
+                            <div class="demo-output-section">
+                                <div class="output-label">High-performing leadership version:</div>
+                                <div id="transformedOutput" class="demo-output-box">
+                                    <div class="typing-animation">Start typing to see the magic happen...</div>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="transformation-widget">
-                            <div class="widget-header">
-                                <h4>⚡ Good → High-Performing</h4>
-                                <p class="widget-subtext">From solid management to exceptional leadership</p>
+                        <div class="hero-cta-section">
+                            <a href="just-ask-april.html" class="primary-hero-cta">Try Full Tool - It's Free →</a>
+                            <div class="trust-indicators">
+                                <span>⚡ Instant results</span>
+                                <span>🎯 30+ years expertise</span>
+                                <span>🚀 No signup required</span>
                             </div>
-                            
-                            <div class="transformation-demo">
-                                <div class="demo-input">
-                                    <span class="demo-label">✅ Good Manager Says:</span>
-                                    <div class="demo-text">"Let's discuss your performance and see how we can improve moving forward."</div>
-                                </div>
-                                <div class="demo-arrow">↓</div>
-                                <div class="demo-output">
-                                    <span class="demo-label">🚀 High-Performing Leader Says:</span>
-                                    <div class="demo-text">"I see tremendous potential in you. Let's identify the specific support you need to exceed your goals and accelerate your growth here."</div>
-                                </div>
-                            </div>
-                            
-                            <a href="just-ask-april.html" class="try-now-btn">🎯 Optimize Your Leadership</a>
                         </div>
                     </div>
                     
@@ -1174,6 +1173,76 @@
     </footer>
 
     <script>
+        // Interactive Hero Demo
+        class InteractiveDemo {
+            constructor() {
+                this.templates = {
+                    'performance': "I see tremendous potential in you. Let's identify the specific support you need to exceed your goals and accelerate your growth here.",
+                    'late': "I've noticed you've been late several times this month. Help me understand what's happening so we can work together on a solution.",
+                    'meeting': "I'd love to get your perspective on how we can make our team meetings more valuable for everyone, including yourself.",
+                    'feedback': "You've been doing solid work, and I want to help you take it to the next level. What would feel most supportive to you right now?",
+                    'default': "I believe in your potential. Let's work together to identify the best path forward that supports both your growth and our team's success."
+                };
+                this.init();
+            }
+
+            init() {
+                const inputBox = document.getElementById('userInput');
+                const outputBox = document.getElementById('transformedOutput');
+                
+                if (inputBox && outputBox) {
+                    inputBox.addEventListener('input', (e) => {
+                        this.handleInput(e.target.value, outputBox);
+                    });
+                    
+                    // Add some demo examples on focus
+                    inputBox.addEventListener('focus', () => {
+                        if (!inputBox.value) {
+                            inputBox.placeholder = 'Try: "You need to improve your performance" or "You\'re always late"';
+                        }
+                    });
+                }
+            }
+
+            handleInput(text, outputBox) {
+                if (!text.trim()) {
+                    outputBox.innerHTML = '<div class="typing-animation">Start typing to see the magic happen...</div>';
+                    return;
+                }
+
+                // Show typing animation
+                outputBox.innerHTML = '<div class="typing-animation">April AI is transforming your words...</div>';
+                
+                // Simulate processing delay
+                setTimeout(() => {
+                    const transformed = this.transformText(text);
+                    outputBox.innerHTML = transformed;
+                }, 800);
+            }
+
+            transformText(input) {
+                const lowerInput = input.toLowerCase();
+                
+                if (lowerInput.includes('performance') || lowerInput.includes('improve')) {
+                    return this.templates.performance;
+                }
+                
+                if (lowerInput.includes('late') || lowerInput.includes('tardy') || lowerInput.includes('time')) {
+                    return this.templates.late;
+                }
+                
+                if (lowerInput.includes('meeting') || lowerInput.includes('participate')) {
+                    return this.templates.meeting;
+                }
+                
+                if (lowerInput.includes('feedback') || lowerInput.includes('review')) {
+                    return this.templates.feedback;
+                }
+                
+                return this.templates.default;
+            }
+        }
+
         // Enhanced Chat Demo
         class ChatDemo {
             constructor() {
@@ -1305,6 +1374,9 @@
                 navMenu.classList.toggle('active');
             });
 
+            // Initialize interactive demo
+            new InteractiveDemo();
+            
             // Initialize chat demo
             new ChatDemo();
 
