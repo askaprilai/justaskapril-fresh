@@ -331,7 +331,8 @@
             opacity: 0.8;
         }
 
-        .live-demo-container {
+        /* Demo Container */
+        .demo-container {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 16px;
             padding: 2rem;
@@ -342,8 +343,47 @@
             position: relative;
         }
 
+        .input-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .leader-type-toggle {
+            display: flex;
+            background: #f0f0f0;
+            border-radius: 25px;
+            padding: 3px;
+            gap: 2px;
+        }
+
+        .toggle-btn {
+            background: transparent;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .toggle-btn.active {
+            background: #333;
+            color: #FFD700;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .toggle-btn:hover:not(.active) {
+            background: rgba(255, 215, 0, 0.2);
+            color: #333;
+        }
+
         .demo-input-section {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .demo-label {
@@ -481,6 +521,14 @@
             font-weight: 600;
             border: 2px solid #333;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .cta-subtext {
+            color: #333;
+            font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.8;
+            margin-top: 0.5rem;
         }
 
         @media (max-width: 768px) {
@@ -860,35 +908,37 @@
                     <div class="interactive-hero-widget">
                         <div class="widget-header">
                             <h2>🎯 The Grammarly for Managers</h2>
-                            <p class="widget-tagline">See your words transform in real-time</p>
+                            <p class="widget-tagline">Type what you want to say. Watch it transform instantly.</p>
                         </div>
                         
-                        <div class="live-demo-container">
+                        <div class="demo-container">
                             <div class="demo-input-section">
-                                <label class="demo-label">Type what you want to say:</label>
-                                <textarea id="userInput" class="demo-input-box" placeholder="e.g., Your performance needs improvement..."></textarea>
+                                <div class="input-header">
+                                    <label class="demo-label">What you want to say:</label>
+                                    <div class="leader-type-toggle">
+                                        <button class="toggle-btn active" data-type="smb">SMB</button>
+                                        <button class="toggle-btn" data-type="corporate">Corporate</button>
+                                    </div>
+                                </div>
+                                <textarea id="userInput" class="demo-input-box" placeholder="Try: 'You're always late' or 'Your performance needs work'"></textarea>
                             </div>
                             
                             <div class="transformation-arrow">
-                                <div class="arrow-icon">→</div>
-                                <div class="transformation-text">April AI transforms it to:</div>
+                                <div class="arrow-icon">↓</div>
+                                <div class="transformation-text">Transforms to:</div>
                             </div>
                             
                             <div class="demo-output-section">
-                                <div class="output-label">High-performing leadership version:</div>
+                                <div class="output-label" id="outputLabel">Professional leadership approach:</div>
                                 <div id="transformedOutput" class="demo-output-box">
-                                    <div class="typing-animation">Start typing to see the magic happen...</div>
+                                    <div class="typing-animation">Start typing above to see the magic...</div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="hero-cta-section">
-                            <a href="just-ask-april.html" class="primary-hero-cta">Try Full Tool - It's Free →</a>
-                            <div class="trust-indicators">
-                                <span>⚡ Instant results</span>
-                                <span>🎯 30+ years expertise</span>
-                                <span>🚀 No signup required</span>
-                            </div>
+                            <a href="just-ask-april.html" class="primary-hero-cta">Get Full Access - Free →</a>
+                            <p class="cta-subtext">No signup • Instant results • 30+ years expertise</p>
                         </div>
                     </div>
                     
@@ -1176,13 +1226,37 @@
         // Interactive Hero Demo
         class InteractiveDemo {
             constructor() {
+                this.currentLeaderType = 'smb';
                 this.templates = {
-                    'performance': "I see tremendous potential in you. Let's identify the specific support you need to exceed your goals and accelerate your growth here.",
-                    'late': "I've noticed you've been late several times this month. Help me understand what's happening so we can work together on a solution.",
-                    'meeting': "I'd love to get your perspective on how we can make our team meetings more valuable for everyone, including yourself.",
-                    'feedback': "You've been doing solid work, and I want to help you take it to the next level. What would feel most supportive to you right now?",
-                    'default': "I believe in your potential. Let's work together to identify the best path forward that supports both your growth and our team's success."
+                    smb: {
+                        'performance': "I know you care about your work here, and I see real potential in you. Let's figure out what support you need to hit your targets and grow with our company.",
+                        'late': "I've noticed you've been late a few times recently. Is everything okay? Let's talk about what's happening and how we can work together to fix this.",
+                        'meeting': "I'd love your input on how we can make our team meetings more useful for everyone. What would help you get the most out of them?",
+                        'feedback': "You're doing solid work, and I want to help you take it to the next level. What kind of support would be most helpful for you right now?",
+                        'fired': "This is really hard to say, but we need to let you go. You're a good person, and this isn't working out for either of us. Let's talk about how to make this transition as smooth as possible.",
+                        'default': "I believe in you and want to see you succeed here. Let's work together to figure out the best path forward for both you and our team."
+                    },
+                    corporate: {
+                        'performance': "I see tremendous potential in your career trajectory. Let's identify the specific competencies and support systems you need to exceed your KPIs and advance within the organization.",
+                        'late': "I've observed some attendance inconsistencies that we need to address. Help me understand the contributing factors so we can develop an appropriate action plan together.",
+                        'meeting': "I'd appreciate your perspective on optimizing our meeting effectiveness and ensuring all stakeholders are maximally engaged and contributing value.",
+                        'feedback': "Your work demonstrates strong foundational skills. I'd like to discuss development opportunities that align with your career aspirations and our organizational objectives.",
+                        'fired': "After careful consideration and documented performance discussions, we've made the difficult decision to terminate your employment. We'll ensure a professional transition process.",
+                        'default': "I'm committed to your professional development. Let's collaborate on identifying growth opportunities that benefit both your career progression and our team's strategic goals."
+                    }
                 };
+                
+                this.contextData = {
+                    smb: {
+                        placeholder: 'Try: "You need to step it up" or "You\'re fired"',
+                        outputLabel: 'Small business leadership approach:'
+                    },
+                    corporate: {
+                        placeholder: 'Try: "Performance needs improvement" or "Attendance issues"',
+                        outputLabel: 'Corporate leadership approach:'
+                    }
+                };
+                
                 this.init();
             }
 
@@ -1190,18 +1264,42 @@
                 const inputBox = document.getElementById('userInput');
                 const outputBox = document.getElementById('transformedOutput');
                 
+                // Initialize leader type buttons
+                const leaderTypeBtns = document.querySelectorAll('.toggle-btn');
+                leaderTypeBtns.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        // Remove active from all buttons
+                        leaderTypeBtns.forEach(b => b.classList.remove('active'));
+                        // Add active to clicked button
+                        e.currentTarget.classList.add('active');
+                        // Update current leader type
+                        this.currentLeaderType = e.currentTarget.dataset.type;
+                        // Update UI
+                        this.updateUI();
+                        // Re-transform current input if any
+                        if (inputBox.value.trim()) {
+                            this.handleInput(inputBox.value, outputBox);
+                        }
+                    });
+                });
+                
                 if (inputBox && outputBox) {
                     inputBox.addEventListener('input', (e) => {
                         this.handleInput(e.target.value, outputBox);
                     });
-                    
-                    // Add some demo examples on focus
-                    inputBox.addEventListener('focus', () => {
-                        if (!inputBox.value) {
-                            inputBox.placeholder = 'Try: "You need to improve your performance" or "You\'re always late"';
-                        }
-                    });
                 }
+                
+                // Initialize UI with default SMB context
+                this.updateUI();
+            }
+
+            updateUI() {
+                const context = this.contextData[this.currentLeaderType];
+                const inputBox = document.getElementById('userInput');
+                const outputLabel = document.getElementById('outputLabel');
+                
+                if (inputBox) inputBox.placeholder = context.placeholder;
+                if (outputLabel) outputLabel.textContent = context.outputLabel;
             }
 
             handleInput(text, outputBox) {
@@ -1222,24 +1320,29 @@
 
             transformText(input) {
                 const lowerInput = input.toLowerCase();
+                const templates = this.templates[this.currentLeaderType];
                 
-                if (lowerInput.includes('performance') || lowerInput.includes('improve')) {
-                    return this.templates.performance;
+                if (lowerInput.includes('performance') || lowerInput.includes('improve') || lowerInput.includes('step it up')) {
+                    return templates.performance;
                 }
                 
                 if (lowerInput.includes('late') || lowerInput.includes('tardy') || lowerInput.includes('time')) {
-                    return this.templates.late;
+                    return templates.late;
                 }
                 
                 if (lowerInput.includes('meeting') || lowerInput.includes('participate')) {
-                    return this.templates.meeting;
+                    return templates.meeting;
                 }
                 
                 if (lowerInput.includes('feedback') || lowerInput.includes('review')) {
-                    return this.templates.feedback;
+                    return templates.feedback;
                 }
                 
-                return this.templates.default;
+                if (lowerInput.includes('fired') || lowerInput.includes('fire') || lowerInput.includes('terminate') || lowerInput.includes('let go')) {
+                    return templates.fired;
+                }
+                
+                return templates.default;
             }
         }
 
