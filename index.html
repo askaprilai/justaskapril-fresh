@@ -281,19 +281,43 @@
         .just-ask-april-banner {
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
             border: 3px solid #333;
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            display: flex;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 3rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
             align-items: center;
-            gap: 1rem;
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 12px 40px rgba(255, 215, 0, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .just-ask-april-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%), 
+                        linear-gradient(-45deg, rgba(255,255,255,0.1) 25%, transparent 25%);
+            background-size: 20px 20px;
+            pointer-events: none;
         }
 
         .just-ask-april-banner:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.5);
+        }
+
+        .banner-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            z-index: 2;
+            position: relative;
         }
 
         .banner-photo {
@@ -302,25 +326,27 @@
         }
 
         .april-banner-img {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            border: 3px solid #333;
+            border: 4px solid #333;
             object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .experience-tag {
             position: absolute;
-            bottom: -5px;
+            bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
             background: #333;
             color: #FFD700;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 0.7rem;
-            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 700;
             white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
 
         .banner-content {
@@ -328,124 +354,170 @@
         }
 
         .banner-content h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
+            font-size: 1.8rem;
+            font-weight: 800;
             color: #333;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.2;
         }
 
         .banner-content p {
             color: #333;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            line-height: 1.4;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            font-weight: 500;
         }
 
         .banner-cta {
             background: #333;
             color: #FFD700;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
+            padding: 1rem 2rem;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
+            font-weight: 700;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
             display: inline-block;
-        }
-
-        .banner-cta:hover {
-            background: #1a1a1a;
-            transform: translateX(5px);
-        }
-
-        .script-examples {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 1rem 0;
-        }
-
-        .script-tag {
-            background: #333;
-            color: #FFD700;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-
-        .transformation-example {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             border: 2px solid #333;
         }
 
-        .input-example, .output-example {
-            margin-bottom: 1rem;
+        .banner-cta:hover {
+            background: #FFD700;
+            color: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
         }
 
-        .input-example:last-child, .output-example:last-child {
-            margin-bottom: 0;
+        .transformation-widget {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 3px solid #333;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            z-index: 2;
+            position: relative;
         }
 
-        .example-label {
-            display: block;
+        .widget-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .widget-header h4 {
+            color: #333;
+            font-size: 1.3rem;
             font-weight: 700;
-            font-size: 0.9rem;
             margin-bottom: 0.5rem;
         }
 
-        .input-example .example-label {
+        .widget-subtext {
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .transformation-demo {
+            margin-bottom: 1.5rem;
+        }
+
+        .demo-input, .demo-output {
+            margin-bottom: 1rem;
+        }
+
+        .demo-label {
+            display: block;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .demo-input .demo-label {
             color: #dc2626;
         }
 
-        .output-example .example-label {
+        .demo-output .demo-label {
             color: #16a34a;
         }
 
-        .example-text {
-            background: white;
-            padding: 0.8rem;
-            border-radius: 8px;
-            font-style: italic;
-            border-left: 4px solid #333;
-            color: #333;
+        .demo-text {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
             font-size: 0.95rem;
             line-height: 1.4;
+            border-left: 4px solid;
+            color: #333;
+            font-weight: 500;
         }
 
-        .arrow {
+        .demo-input .demo-text {
+            border-left-color: #dc2626;
+        }
+
+        .demo-output .demo-text {
+            border-left-color: #16a34a;
+        }
+
+        .demo-arrow {
             text-align: center;
             font-size: 1.5rem;
-            font-weight: bold;
+            margin: 0.8rem 0;
             color: #333;
-            margin: 0.5rem 0;
+        }
+
+        .try-now-btn {
+            background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: block;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+        }
+
+        .try-now-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+            background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
         }
 
         @media (max-width: 768px) {
             .just-ask-april-banner {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+
+            .banner-left {
                 flex-direction: column;
                 text-align: center;
                 gap: 1rem;
             }
 
-            .banner-icon {
-                font-size: 2.5rem;
-            }
-
             .banner-content h3 {
-                font-size: 1.2rem;
+                font-size: 1.4rem;
             }
 
-            .script-examples {
-                justify-content: center;
+            .banner-content p {
+                font-size: 1rem;
             }
 
-            .script-tag {
-                font-size: 0.8rem;
+            .transformation-widget {
+                padding: 1.5rem;
+            }
+
+            .widget-header h4 {
+                font-size: 1.1rem;
             }
         }
 
@@ -787,27 +859,37 @@
                     
                     <!-- Just Ask April Banner -->
                     <div class="just-ask-april-banner">
-                        <div class="banner-photo">
-                            <img src="April-Image1.png" alt="April Sabral - 30+ Years Leadership Experience" class="april-banner-img">
-                            <div class="experience-tag">30+ Years Leading Teams</div>
+                        <div class="banner-left">
+                            <div class="banner-photo">
+                                <img src="April-Image1.png" alt="April Sabral - 30+ Years Leadership Experience" class="april-banner-img">
+                                <div class="experience-tag">30+ Years Leading Teams</div>
+                            </div>
+                            <div class="banner-content">
+                                <h3>🎯 The Grammarly for Managers</h3>
+                                <p>Stop wondering what to say in difficult conversations. Just Ask April transforms your thoughts into professional, coaching-based dialogue that gets results without damaging relationships.</p>
+                                <a href="just-ask-april.html" class="banner-cta">Try It Now - It's Free! →</a>
+                            </div>
                         </div>
-                        <div class="banner-content">
-                            <h3>🎯 Transform Your Words Into Professional Coaching</h3>
-                            <p><strong>"Just Ask April"</strong> - The Grammarly for Managers. Type what you want to say and watch April AI turn it into a professional coaching conversation that gets results.</p>
+                        
+                        <div class="transformation-widget">
+                            <div class="widget-header">
+                                <h4>⚡ Live Transformation Demo</h4>
+                                <p class="widget-subtext">Watch your words become professional coaching</p>
+                            </div>
                             
-                            <div class="transformation-example">
-                                <div class="input-example">
-                                    <span class="example-label">❌ What you want to say:</span>
-                                    <div class="example-text">"You're always late and it's unacceptable"</div>
+                            <div class="transformation-demo">
+                                <div class="demo-input">
+                                    <span class="demo-label">❌ What you want to say:</span>
+                                    <div class="demo-text">"You're always late and it's unacceptable"</div>
                                 </div>
-                                <div class="arrow">→</div>
-                                <div class="output-example">
-                                    <span class="example-label">✅ April AI transforms it to:</span>
-                                    <div class="example-text">"I've noticed you've been late several times this month. Help me understand what's happening so we can work together on a solution."</div>
+                                <div class="demo-arrow">↓</div>
+                                <div class="demo-output">
+                                    <span class="demo-label">✅ April AI transforms it to:</span>
+                                    <div class="demo-text">"I've noticed you've been late several times this month. Help me understand what's happening so we can work together on a solution."</div>
                                 </div>
                             </div>
                             
-                            <a href="just-ask-april.html" class="banner-cta">🚀 Try the Script Transformer →</a>
+                            <a href="just-ask-april.html" class="try-now-btn">🚀 Transform Your Words Now</a>
                         </div>
                     </div>
                     
